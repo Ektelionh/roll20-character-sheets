@@ -123,18 +123,33 @@
                                         <table style="border-collapse:collapse;">
                                             <tr>
                                                 <td></td>
+												<td></td>
                                             </tr>
                                             <tr>
-                                                <td><label class="sheet-small-label2" style="width: 30%;"><span data-i18n="current-luck">Actuelle</span><input name="attr_luck" type="text" data-i18n-title="current-luck-title" title="Chance Actuelle" /></label></td>
+                                                <td>
+													<label class="sheet-small-label2" style="width: 30%; height: 50%;">
+													<span data-i18n="current-luck">Actuelle</span>
+													<input name="attr_luck" type="text" data-i18n-title="current-luck-title" title="Chance Actuelle" />
+													</label>
+												</td>
+												<td></td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+												<td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{current-luck}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{luck}]]}} {{critical_roll=[[1d20]]}}" name="roll_luckCheck"></button></td>
                                             </tr>
                                             <tr>
                                                 <td></td>
+												<td></td>
                                             </tr>
                                             <tr>
-                                                <td><label class="sheet-small-label2" style="width: 30%;"><span data-i18n="total-luck">Totale</span><input name="attr_luckTotal" type="text" data-i18n-title="total-luck-title" title="Chance Totale" /></label>
+                                                <td>
+													<label class="sheet-small-label2" style="width: 30%; height: 50%;">
+													<span data-i18n="total-luck">Totale</span>
+													<input name="attr_luckTotal" type="text" data-i18n-title="total-luck-title" title="Chance Totale" />
+													</label>
+												</td>
+												<td></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -182,6 +197,37 @@
                                     <td class="sheet-cell-center sheet-cell-border"><input name="attr_intNaturalGift" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td class="sheet-cell-center sheet-cell-border"><input name="attr_wilNaturalGift" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td class="sheet-cell-center sheet-cell-border"><input name="attr_preNaturalGift" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                </tr>
+								<tr class="sheet-tableline">
+                                    <td><strong><span data-i18n="ability-roll">Jet d'attribut</span></strong></td>
+                                    <td class="sheet-cell-center sheet-cell-border">
+										<button type="roll" onclick="runClock()"  name="roll_strengthCheck"></button>
+										<td>
+										<span id="time"></span>
+										</td>
+										<!-- value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{strength}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{str}]]}} {{critical_roll=[[1d20]]}}" -->
+									</td>
+                                    <td class="sheet-cell-center sheet-cell-border">
+										<button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{constitution}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{con}]]}} {{critical_roll=[[1d20]]}}" name="roll_constitutionCheck"></button>
+									</td>
+                                    <td class="sheet-cell-center sheet-cell-border">
+										<button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{coordination}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{coo}]]}} {{critical_roll=[[1d20]]}}" name="roll_coordinationCheck"></button>
+									</td>
+									<td class="sheet-cell-center sheet-cell-border">
+										<button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{adaptation}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{ada}]]}} {{critical_roll=[[1d20]]}}" name="roll_adaptationCheck"></button>
+									</td>
+                                    <td class="sheet-cell-center sheet-cell-border">
+										<button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{perception}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{per}]]}} {{critical_roll=[[1d20]]}}" name="roll_perceptionCheck"></button>
+									</td>
+                                    <td class="sheet-cell-center sheet-cell-border">
+										<button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{intelligence}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{int}]]}} {{critical_roll=[[1d20]]}}" name="roll_intelligenceCheck"></button>
+									</td>
+                                    <td class="sheet-cell-center sheet-cell-border">
+										<button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{willpower}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{wil}]]}} {{critical_roll=[[1d20]]}}" name="roll_willpowerCheck"</button>
+									</td>
+                                    <td class="sheet-cell-center sheet-cell-border">
+										<button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{presence}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{pre}]]}} {{critical_roll=[[1d20]]}}" name="roll_presenceCheck"></button>
+									</td>
                                 </tr>
                             </table>
                         </div>
@@ -990,6 +1036,16 @@
                                     <td><input name="attr_huntingTracking" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
                                     <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{hunting-tracking}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{huntingTracking}]]}} {{critical_roll=[[1d20]]}}" name="roll_huntingTrackingCheck"></button></td>
                                 </tr>
+								<tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_cityKnowledgeCheck" value="1" /></td>
+                                    <td><span data-i18n="natural-environment-knowledge">Conn. milieu naturel</span> [ <span data-i18n="city">Cités et stations sous-marines</span> ] &#8226;</td>
+                                    <td class="sheet-smalldata"></td>
+                                    <td><span data-i18n="int">INT</span>/<span data-i18n="ada">ADA</span></td>
+                                    <td><input name="attr_cityKnowledgeBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_cityKnowledgeMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_cityKnowledge" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{natural-environment-knowledge} [ ^{city} ]}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{cityKnowledge}]]}} {{critical_roll=[[1d20]]}}" name="roll_cityKnowledgeCheck"></button></td>
+                                </tr>
                                 <tr class="sheet-tableline">
                                     <td><input type="checkbox" name="attr_oceansKnowledgeCheck" value="1" /></td>
                                     <td><span data-i18n="natural-environment-knowledge">Conn. milieu naturel</span> [ <span data-i18n="oceans">Océans</span> ] &#8226;</td>
@@ -1089,6 +1145,16 @@
                                     <td><input name="attr_armory" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
                                     <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{armory}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{armory}]]}} {{critical_roll=[[1d20]]}}" name="roll_armoryCheck"></button></td>
                                 </tr>
+								<tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_artCraftmanshipCheck" value="1" /></td>
+                                    <td><span data-i18n="art-craftmanship">Art/Artisanat</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="int">INT</span>/<span data-i18n="per">PER</span></td>
+                                    <td><input name="attr_artCraftmanshipBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_artCraftmanshipMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_artCraftmanship" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{art-craftmanship}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{artCraftmanship}]]}} {{critical_roll=[[1d20]]}}" name="roll_artCraftmanshipCheck"></button></td>
+                                </tr>
                                 <tr class="sheet-tableline">
                                     <td><input type="checkbox" name="attr_aquacultureLivestockFarmingCheck" value="1" /></td>
                                     <td><span data-i18n="aquaculture-livestock-farming">Aquaculture/Élevage</span></td>
@@ -1150,14 +1216,14 @@
                                     <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{explosives}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{explosives}]]}} {{critical_roll=[[1d20]]}}" name="roll_explosivesCheck"></button></td>
                                 </tr>
                                 <tr class="sheet-tableline">
-                                    <td><input type="checkbox" name="attr_artCraftmanshipCheck" value="1" /></td>
-                                    <td><span data-i18n="art-craftmanship">Falsification</span></td>
+                                    <td><input type="checkbox" name="attr_forgeryCheck" value="1" /></td>
+                                    <td><span data-i18n="forgery">Falsification</span> &#8224;</td>
                                     <td class="sheet-smalldata">X</td>
                                     <td><span data-i18n="int">INT</span>/<span data-i18n="per">PER</span></td>
-                                    <td><input name="attr_artCraftmanshipBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
-                                    <td><input name="attr_artCraftmanshipMast" type="number" class="sheet-short sheet-boxinput" /></td>
-                                    <td><input name="attr_artCraftmanship" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
-                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{art-craftmanship}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{artCraftmanship}]]}} {{critical_roll=[[1d20]]}}" name="roll_artCraftmanshipCheck"></button></td>
+                                    <td><input name="attr_forgeryBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_forgeryMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_forgery" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{forgery}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{forgery}]]}} {{critical_roll=[[1d20]]}}" name="roll_forgeryCheck"></button></td>
                                 </tr>
                                 <tr class="sheet-tableline">
                                     <td><input type="checkbox" name="attr_technicalEngineering1Check" value="1" /></td>
@@ -1201,7 +1267,7 @@
                                 </tr>
                                 <tr class="sheet-tableline">
                                     <td><input type="checkbox" name="attr_survivalMechanicCheck" value="1" /></td>
-                                    <td><span data-i18n="mechanic">Mécanique</span>: <span data-i18n="survival-system-and-generators">Générateurs/Systèmes de survie</span></td>
+                                    <td><span data-i18n="mechanic">Mécanique</span>: <input name="attr_survivalMechanicName" type="text" class="sheet-nobox" /></td>
                                     <td class="sheet-smalldata">&nbsp;</td>
                                     <td><span data-i18n="int">INT</span>/<span data-i18n="int">INT</span></td>
                                     <td><input name="attr_survivalMechanicBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
@@ -1266,7 +1332,7 @@
                                     <td><span data-i18n="int">INT</span>/<span data-i18n="int">INT</span></td>
                                     <td><input name="attr_securitySystemsBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td><input name="attr_securitySystemsMast" type="number" class="sheet-short sheet-boxinput" /></td>
-                                    <td><input name="attr_securitySystems" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_securitySystems" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{security-systems}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{securitySystems}]]}} {{critical_roll=[[1d20]]}}" name="roll_securitySystemsCheck"></button></td>
                                 </tr>
                                 <tr>
@@ -1279,9 +1345,195 @@
                                     <td colspan="8"></td>
                                 </tr>
                                 <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_absenceCheck" value="1" /></td>
+                                    <td><span data-i18n="absence">Absence</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="ada">ADA</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_absenceBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_absenceMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_absence" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{absence}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{absence}]]}} {{critical_roll=[[1d20]]}}" name="roll_absenceCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_outdoorAdaptationCheck" value="1" /></td>
+                                    <td><span data-i18n="outdoor-adaptation">Adaptation extérieur</span></td>
+                                    <td class="sheet-smalldata">(-3)</td>
+                                    <td><span data-i18n="con">CON</span>/<span data-i18n="con">CON</span></td>
+                                    <td><input name="attr_outdoorAdaptationBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_outdoorAdaptationMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_outdoorAdaptation" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{outdoor-adaptation}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{outdoorAdaptation}]]}} {{critical_roll=[[1d20]]}}" name="roll_outdoorAdaptationCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_caudalAgilityCheck" value="1" /></td>
+                                    <td><span data-i18n="caudal-agility">Agilité caudale</span></td>
+                                    <td class="sheet-smalldata"></td>
+                                    <td><span data-i18n="coo">COO</span>/<span data-i18n="coo">COO</span></td>
+                                    <td><input name="attr_caudalAgilityBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_caudalAgilityMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_caudalAgility" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{caudal-agility}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{caudalAgility}]]}} {{critical_roll=[[1d20]]}}" name="roll_caudalAgilityCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_mentalShieldCheck" value="1" /></td>
+                                    <td><span data-i18n="mental-shield">Bouclier mental</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="wil">VOL</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_mentalShieldBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_mentalShieldMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_mentalShield" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{mental-shield}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{mentalShield}]]}} {{critical_roll=[[1d20]]}}" name="roll_mentalShieldCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_contagionCheck" value="1" /></td>
+                                    <td><span data-i18n="contagion">Contagion</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="con">CON</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_contagionBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_contagionMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_contagion" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{contagion}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{contagion}]]}} {{critical_roll=[[1d20]]}}" name="roll_contagionCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_bodyControlCheck" value="1" /></td>
+                                    <td><span data-i18n="body-control">Contrôle corporel</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="con">CON</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_bodyControlBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_bodyControlMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_bodyControl" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{body-control}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{bodyControl}]]}} {{critical_roll=[[1d20]]}}" name="roll_bodyControlCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_molecularControlCheck" value="1" /></td>
+                                    <td><span data-i18n="molecular-control">Contrôle moléculaire</span></td>
+                                    <td class="sheet-smalldata"></td>
+                                    <td><span data-i18n="con">CON</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_molecularControlBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_molecularControlMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_molecularControl" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{molecular-control}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{molecularControl}]]}} {{critical_roll=[[1d20]]}}" name="roll_molecularControlCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_empathyCheck" value="1" /></td>
+                                    <td><span data-i18n="empathy">Empathie</span></td>
+                                    <td class="sheet-smalldata">(-3)</td>
+                                    <td><span data-i18n="wil">VOL</span>/<span data-i18n="pre">PRE</span></td>
+                                    <td><input name="attr_empathyBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_empathyMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_empathy" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{empathy}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{empathy}]]}} {{critical_roll=[[1d20]]}}" name="roll_empathyCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_hybrideCheck" value="1" /></td>
+                                    <td><span data-i18n="hybride">Hybride</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="con">CON</span>/<span data-i18n="coo">COO</span></td>
+                                    <td><input name="attr_hybrideBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_hybrideMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_hybride" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{hybride}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{hybride}]]}} {{critical_roll=[[1d20]]}}" name="roll_hybrideCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_hypnosisCheck" value="1" /></td>
+                                    <td><span data-i18n="hypnosis">Hypnose</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="wil">VOL</span>/<span data-i18n="pre">PRE</span></td>
+                                    <td><input name="attr_hypnosisBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_hypnosisMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_hypnosis" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{hypnosis}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{hypnosis}]]}} {{critical_roll=[[1d20]]}}" name="roll_hypnosisCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_polarisEchoCheck" value="1" /></td>
+                                    <td><span data-i18n="polaris-echo">Maîtrise de l'écho Polaris</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="int">INT</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_polarisEchoBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_polarisEchoMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_polarisEcho" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{polaris-echo}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{polarisEcho}]]}} {{critical_roll=[[1d20]]}}" name="roll_polarisEchoCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_polarisEffectCheck" value="1" /></td>
+                                    <td><span data-i18n="polaris-effect">Maîtrise de l'effet Polaris</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="wil">VOL</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_polarisEffectBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_polarisEffectMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_polarisEffect" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{polaris-effect}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{polarisEffect}]]}} {{critical_roll=[[1d20]]}}" name="roll_polarisEffectCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_meditationCheck" value="1" /></td>
+                                    <td><span data-i18n="meditation">Méditation</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="wil">VOL</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_meditationBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_meditationMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_meditation" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{meditation}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{meditation}]]}} {{critical_roll=[[1d20]]}}" name="roll_meditationCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_metamorphosisCheck" value="1" /></td>
+                                    <td><span data-i18n="metamorphosis">Métamorphose</span></td>
+                                    <td class="sheet-smalldata">(-3)</td>
+                                    <td><span data-i18n="con">CON</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_metamorphosisBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_metamorphosisMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_metamorphosis" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{metamorphosis}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{metamorphosis}]]}} {{critical_roll=[[1d20]]}}" name="roll_metamorphosisCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_purulenceCheck" value="1" /></td>
+                                    <td><span data-i18n="purulence">Purulence</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="con">CON</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_purulenceBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_purulenceMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_purulence" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{purulence}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{purulence}]]}} {{critical_roll=[[1d20]]}}" name="roll_purulenceCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_radiationsCheck" value="1" /></td>
+                                    <td><span data-i18n="radiations">Radiations</span></td>
+                                    <td class="sheet-smalldata">(-3)</td>
+                                    <td><span data-i18n="con">CON</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_radiationsBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_radiationsMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_radiations" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{radiations}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{radiations}]]}} {{critical_roll=[[1d20]]}}" name="roll_radiationsCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_sonarCheck" value="1" /></td>
+                                    <td><span data-i18n="sonar">Sonar</span></td>
+                                    <td class="sheet-smalldata"></td>
+                                    <td><span data-i18n="per">PER</span>/<span data-i18n="per">PER</span></td>
+                                    <td><input name="attr_sonarBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_sonarMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_sonar" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{sonar}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{sonar}]]}} {{critical_roll=[[1d20]]}}" name="roll_sonarCheck"></button></td>
+                                </tr>
+                                <tr class="sheet-tableline">
+                                    <td><input type="checkbox" name="attr_polarisPowerCheck" value="1" /></td>
+                                    <td><span data-i18n="polaris-power">Pouvoirs Polaris</span></td>
+                                    <td class="sheet-smalldata">X</td>
+                                    <td><span data-i18n="int">INT</span>/<span data-i18n="wil">VOL</span></td>
+                                    <td><input name="attr_polarisPowerBase" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_polarisPowerMast" type="number" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_polarisPower" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=^{polaris-power}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{polarisPower}]]}} {{critical_roll=[[1d20]]}}" name="roll_polarisPowerCheck"></button></td>
+                                </tr>								
+                                <tr class="sheet-tableline">
                                     <td><input type="checkbox" name="attr_specialComp1Check" value="1" /></td>
                                     <td><input name="attr_specialComp1Name" type="text" class="sheet-nobox sheet-extralarge" /></td>
-                                    <td class="sheet-smalldata">&nbsp;</td>
+                                    <td class="sheet-smalldata">
+										<select class="sheet-small" name="attr_specialComp1Type">
+                                            <option value=""></option>
+                                            <option value="complexSkill">(-3)</option>
+                                            <option value="reservedSkill">X</option>
+                                        </select>
+									</td>
                                     <td>
                                         <select class="sheet-small" name="attr_specialComp1FirstAbility">
                                             <option value=""></option>
@@ -1313,7 +1565,13 @@
                                 <tr class="sheet-tableline">
                                     <td><input type="checkbox" name="attr_specialComp2Check" value="1" /></td>
                                     <td><input name="attr_specialComp2Name" type="text" class="sheet-nobox sheet-extralarge" /></td>
-                                    <td class="sheet-smalldata">&nbsp;</td>
+                                    <td class="sheet-smalldata">
+										<select class="sheet-small" name="attr_specialComp2Type">
+                                            <option value=""></option>
+                                            <option value="complexSkill">(-3)</option>
+                                            <option value="reservedSkill">X</option>
+                                        </select>
+									</td>
                                     <td>
                                         <select class="sheet-small" name="attr_specialComp2FirstAbility">
                                             <option value=""></option>
@@ -1339,13 +1597,19 @@
                                     </td>
                                     <td><input name="attr_specialComp2Base" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td><input name="attr_specialComp2Mast" type="number" class="sheet-short sheet-boxinput" /></td>
-                                    <td><input name="attr_specialComp2" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_specialComp2" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=@{specialComp2Name}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{specialComp2}]]}} {{critical_roll=[[1d20]]}}" name="roll_specialComp2Check"></button></td>
                                 </tr>
                                 <tr class="sheet-tableline">
                                     <td><input type="checkbox" name="attr_specialComp3Check" value="1" /></td>
                                     <td><input name="attr_specialComp3Name" type="text" class="sheet-nobox sheet-extralarge" /></td>
-                                    <td class="sheet-smalldata">&nbsp;</td>
+									<td class="sheet-smalldata">
+										<select class="sheet-small" name="attr_specialComp3Type">
+                                            <option value=""></option>
+                                            <option value="complexSkill">(-3)</option>
+                                            <option value="reservedSkill">X</option>
+                                        </select>
+									</td>
                                     <td>
                                         <select class="sheet-small" name="attr_specialComp3FirstAbility">
                                             <option value=""></option>
@@ -1371,13 +1635,20 @@
                                     </td>
                                     <td><input name="attr_specialComp3Base" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td><input name="attr_specialComp3Mast" type="number" class="sheet-short sheet-boxinput" /></td>
-                                    <td><input name="attr_specialComp3" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_specialComp3" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=@{specialComp3Name}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{specialComp3}]]}} {{critical_roll=[[1d20]]}}" name="roll_specialComp3Check"></button></td>
                                 </tr>
                                 <tr class="sheet-tableline">
                                     <td><input type="checkbox" name="attr_specialComp4Check" value="1" /></td>
                                     <td><input name="attr_specialComp4Name" type="text" class="sheet-nobox sheet-extralarge" /></td>
-                                    <td class="sheet-smalldata">&nbsp;</td>
+                                
+									<td class="sheet-smalldata">
+										<select class="sheet-small" name="attr_specialComp4Type">
+                                            <option value=""></option>
+                                            <option value="complexSkill">(-3)</option>
+                                            <option value="reservedSkill">X</option>
+                                        </select>
+									</td>
                                     <td>
                                         <select class="sheet-small" name="attr_specialComp4FirstAbility">
                                             <option value=""></option>
@@ -1401,9 +1672,9 @@
                                         <option value="pre" data-i18n="pre">PRE</option>
                                         </select>
                                     </td>
-                                    <td><input name="attr_specialComp4Base" type="number" readonly="readonly" disabled="true" class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_specialComp4Base" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td><input name="attr_specialComp4Mast" type="number" class="sheet-short sheet-boxinput" /></td>
-                                    <td><input name="attr_specialComp4" type="number" readonly="readonly"class="sheet-short sheet-boxinput" /></td>
+                                    <td><input name="attr_specialComp4" type="number" readonly="readonly" class="sheet-short sheet-boxinput" /></td>
                                     <td><button type="roll" value="&{template:pl_skill} {{character_name=@{character_name}}} {{character_id=@{character_id}}} {{skill_name=@{specialComp4Name}}} {{diceroll=[[@{difficulty-query}]]}} {{skill_value=[[@{specialComp4}]]}} {{critical_roll=[[1d20]]}}" name="roll_specialComp4Check"></button></td>
                                 </tr>
                                 <tr colspan="8" class="sheet-tableline">
@@ -1591,7 +1862,7 @@
                         <div class="sheet-nontable sheet-sect"> 
                             <div class="sheet-divbox sheet-repeating-sect">
                                 <div class="sheet-header sheet-text-center" style="width:100%;"><span data-i18n="meleeWeapons">ARMES (CONTACT)</span></div>
-                                <br/>
+                                <!br/>
                                 <div class="sheet-repeating-fields">
                                     <fieldset class="repeating_meleeWeapons">
                                         <div style="border-spacing:2px; border-collapse:separate; margin:2px;">
@@ -2836,7 +3107,7 @@
                             <span data-i18n="enable-ask-for-difficulty">Demander la difficulté du jet ?</span>
                             <span title="Demander la difficulté lors des tests de compétences et d'armes.">
                                 <select name="attr_difficulty-query">
-                                    <option value="1d20cf20+?{Difficulté|0}" data-i18n="yes" selected>Oui</option>
+                                    <option value="1d20cf20-?{Difficulté|0}" data-i18n="yes" selected>Oui</option>
                                     <option value="1d20cf20" data-i18n="no">Non</option>
                                 </select>
                             </span>
@@ -2851,7 +3122,7 @@
     <div class="sheet-footer">
         <div class="sheet-table">
             <div class="sheet-table-row">
-                <span class="sheet-table-cell"><span data-i18n="footer-created-by">Créé par</span> PadRPG <span data-i18n="footer-inspired">(fortement inspiré de la fiche Pathfinder)</span> | <span data-i18n="footer-last-update">Dernière MAJ</span>: <i>10.03.2018&nbsp;&nbsp;</i>v1.0</span>
+                <span class="sheet-table-cell"><span data-i18n="footer-created-by">Créé par</span> PadRPG <span data-i18n="footer-inspired">(fortement inspiré de la fiche Pathfinder)</span> | <span>Revised by: Ektelionh</span>| <span data-i18n="footer-last-update">Dernière MAJ</span>: <i>10.03.2018&nbsp;&nbsp;</i>v1.0</span>
             </div>
         </div>
     </div>
@@ -2877,21 +3148,33 @@
                 </div>
                 <div class="sheet-roll-row">
                     <div class="sheet-roll-cell">Résultat</div>
-                    <div class="sheet-roll-cell">{{diceroll}}</div>
+                    <div class="sheet-roll-cell" name="test">{{diceroll}}</div>
+                </div>
+
+
+				<div class="sheet-roll-row">
+                    <div class="sheet-roll-cell">Test</div>
+                    
+					<div class="sheet-roll-cell">
+					<input type="number" name="attr_str" readonly="true" />
+					
+			
+					</div>
+					
                 </div>
 
                 {{#rollGreater() diceroll skill_value}}
-                <div class="sheet-roll-row">
-                    <div class="sheet-roll-cell">{{#rollWasFumble() diceroll}}<span style="color:red;font-weight:bold;" data-i18n="critical-result">Critique !</span>{{/rollWasFumble() diceroll}}</div>
-                    <div class="sheet-roll-cell"><span style="font-weight:bold;" data-i18n="fail-result">Echec</span></div>
-                </div>
+					<div class="sheet-roll-row">
+						<div class="sheet-roll-cell">{{#rollWasFumble() diceroll}}<span style="color:red;font-weight:bold;" data-i18n="critical-result">Critique !</span>{{/rollWasFumble() diceroll}}</div>
+						<div class="sheet-roll-cell"><span style="font-weight:bold;" data-i18n="fail-result">Echec</span></div>
+					</div>
 
-                {{#rollWasFumble() diceroll}}
-                <div class="sheet-roll-row">
-                    <div class="sheet-roll-cell"><span data-i18n="critical-reroll">Relance Critique</span></div>
-                    <div class="sheet-roll-cell">{{critical_roll}}</div>
-                </div>
-                {{/rollWasFumble() diceroll}}
+					{{#rollWasFumble() diceroll}}
+					<div class="sheet-roll-row">
+						<div class="sheet-roll-cell"><span data-i18n="critical-reroll">Relance Critique</span></div>
+						<div class="sheet-roll-cell">{{critical_roll}}</div>
+					</div>
+					{{/rollWasFumble() diceroll}}
 
                 {{/rollGreater() diceroll skill_value}}
 
@@ -2899,6 +3182,19 @@
                 <div class="sheet-roll-row">
                     <div class="sheet-roll-cell"><span style="color:green;font-weight:bold;" data-i18n="critical-result">Critique !</span></div>
                     <div class="sheet-roll-cell"><span style="font-weight:bold;" data-i18n="success-result">Réussite</span></div>
+				</div>
+				<div class="sheet-roll-row">
+					<div class="sheet-roll-cell" data-i18n="margin">Margin</div>
+					{{#rollBetween() diceroll 1 2}}<div class="sheet-roll-cell">0</div>{{/rollBetween() diceroll 1 2}}
+					{{#rollBetween() diceroll 3 4}}<div class="sheet-roll-cell">1</div>{{/rollBetween() diceroll 3 4}}
+					{{#rollBetween() diceroll 5 6}}<div class="sheet-roll-cell">2</div>{{/rollBetween() diceroll 5 6}}
+					{{#rollBetween() diceroll 7 9}}<div class="sheet-roll-cell">3</div>{{/rollBetween() diceroll 7 9}}
+					{{#rollBetween() diceroll 10 12}}<div class="sheet-roll-cell">4</div>{{/rollBetween() diceroll 10 12}}
+					{{#rollBetween() diceroll 13 14}}<div class="sheet-roll-cell">5</div>{{/rollBetween() diceroll 13 14}}
+					{{#rollBetween() diceroll 15 19}}<div class="sheet-roll-cell">6</div>{{/rollBetween() diceroll 15 19}}
+					{{#rollBetween() diceroll 20 24}}<div class="sheet-roll-cell">7</div>{{/rollBetween() diceroll 20 24}}
+					{{#rollBetween() diceroll 25 34}}<div class="sheet-roll-cell">8</div>{{/rollBetween() diceroll 25 34}}
+					{{#rollBetween() diceroll 35 100}}<div class="sheet-roll-cell">9</div>{{/rollBetween() diceroll 35 100}}
                 </div>
                 {{/rollTotal() diceroll skill_value}}
 
@@ -2906,6 +3202,19 @@
                 <div class="sheet-roll-row">
                     <div class="sheet-roll-cell"></div>
                     <div class="sheet-roll-cell"><span style="font-weight:bold;" data-i18n="success-result">Réussite</span></div>
+				</div>
+				<div class="sheet-roll-row">
+					<div class="sheet-roll-cell" data-i18n="margin">Margin</div>
+					{{#rollBetween() diceroll 1 2}}<div class="sheet-roll-cell">0</div>{{/rollBetween() diceroll 1 2}}
+					{{#rollBetween() diceroll 3 4}}<div class="sheet-roll-cell">1</div>{{/rollBetween() diceroll 3 4}}
+					{{#rollBetween() diceroll 5 6}}<div class="sheet-roll-cell">2</div>{{/rollBetween() diceroll 5 6}}
+					{{#rollBetween() diceroll 7 9}}<div class="sheet-roll-cell">3</div>{{/rollBetween() diceroll 7 9}}
+					{{#rollBetween() diceroll 10 12}}<div class="sheet-roll-cell">4</div>{{/rollBetween() diceroll 10 12}}
+					{{#rollBetween() diceroll 13 14}}<div class="sheet-roll-cell">5</div>{{/rollBetween() diceroll 13 14}}
+					{{#rollBetween() diceroll 15 19}}<div class="sheet-roll-cell">6</div>{{/rollBetween() diceroll 15 19}}
+					{{#rollBetween() diceroll 20 24}}<div class="sheet-roll-cell">7</div>{{/rollBetween() diceroll 20 24}}
+					{{#rollBetween() diceroll 25 34}}<div class="sheet-roll-cell">8</div>{{/rollBetween() diceroll 25 34}}
+					{{#rollBetween() diceroll 35 100}}<div class="sheet-roll-cell">9</div>{{/rollBetween() diceroll 35 100}}
                 </div>
                 {{/rollLess() diceroll skill_value}}
 
@@ -2963,6 +3272,19 @@
                     <div class="sheet-roll-cell"><span style="color:green;font-weight:bold;" data-i18n="critical-result">Critique !</span></div>
                     <div class="sheet-roll-cell"><span style="font-weight:bold;" data-i18n="success-result">Réussite</span></div>
                 </div>
+				<div class="sheet-roll-row">
+					<div class="sheet-roll-cell" data-i18n="margin">Margin</div>
+					{{#rollBetween() diceroll 1 2}}<div class="sheet-roll-cell">0</div>{{/rollBetween() diceroll 1 2}}
+					{{#rollBetween() diceroll 3 4}}<div class="sheet-roll-cell">1</div>{{/rollBetween() diceroll 3 4}}
+					{{#rollBetween() diceroll 5 6}}<div class="sheet-roll-cell">2</div>{{/rollBetween() diceroll 5 6}}
+					{{#rollBetween() diceroll 7 9}}<div class="sheet-roll-cell">3</div>{{/rollBetween() diceroll 7 9}}
+					{{#rollBetween() diceroll 10 12}}<div class="sheet-roll-cell">4</div>{{/rollBetween() diceroll 10 12}}
+					{{#rollBetween() diceroll 13 14}}<div class="sheet-roll-cell">5</div>{{/rollBetween() diceroll 13 14}}
+					{{#rollBetween() diceroll 15 19}}<div class="sheet-roll-cell">6</div>{{/rollBetween() diceroll 15 19}}
+					{{#rollBetween() diceroll 20 24}}<div class="sheet-roll-cell">7</div>{{/rollBetween() diceroll 20 24}}
+					{{#rollBetween() diceroll 25 34}}<div class="sheet-roll-cell">8</div>{{/rollBetween() diceroll 25 34}}
+					{{#rollBetween() diceroll 35 100}}<div class="sheet-roll-cell">9</div>{{/rollBetween() diceroll 35 100}}
+                </div>
                 {{/rollTotal() diceroll skill_value}}
 
                 {{#rollLess() diceroll skill_value}}
@@ -2977,6 +3299,19 @@
                 <div class="sheet-roll-row">
                     <div class="sheet-roll-cell"></div>
                     <div class="sheet-roll-cell"><span style="font-weight:bold;" data-i18n="success-result">Réussite</span></div>
+                </div>
+				<div class="sheet-roll-row">
+					<div class="sheet-roll-cell" data-i18n="margin">Margin</div>
+					{{#rollBetween() diceroll 1 2}}<div class="sheet-roll-cell">0</div>{{/rollBetween() diceroll 1 2}}
+					{{#rollBetween() diceroll 3 4}}<div class="sheet-roll-cell">1</div>{{/rollBetween() diceroll 3 4}}
+					{{#rollBetween() diceroll 5 6}}<div class="sheet-roll-cell">2</div>{{/rollBetween() diceroll 5 6}}
+					{{#rollBetween() diceroll 7 9}}<div class="sheet-roll-cell">3</div>{{/rollBetween() diceroll 7 9}}
+					{{#rollBetween() diceroll 10 12}}<div class="sheet-roll-cell">4</div>{{/rollBetween() diceroll 10 12}}
+					{{#rollBetween() diceroll 13 14}}<div class="sheet-roll-cell">5</div>{{/rollBetween() diceroll 13 14}}
+					{{#rollBetween() diceroll 15 19}}<div class="sheet-roll-cell">6</div>{{/rollBetween() diceroll 15 19}}
+					{{#rollBetween() diceroll 20 24}}<div class="sheet-roll-cell">7</div>{{/rollBetween() diceroll 20 24}}
+					{{#rollBetween() diceroll 25 34}}<div class="sheet-roll-cell">8</div>{{/rollBetween() diceroll 25 34}}
+					{{#rollBetween() diceroll 35 100}}<div class="sheet-roll-cell">9</div>{{/rollBetween() diceroll 35 100}}
                 </div>
                 {{/rollLess() diceroll skill_value}}
 
@@ -3788,7 +4123,7 @@ var Polaris_Sheet = Polaris_Sheet || (function () {
                         'climbingMast':0,
                         'zerogManeuveringMast':0,
                         'submarineManeuveringMast':0,
-                        'fofBreathingMast':0,
+                        'fofBreathingMast':-3,
                         
                         'heavyWeaponMeleeMast':0,
                         'specialWeaponMeleeMast':0,
@@ -3798,17 +4133,17 @@ var Polaris_Sheet = Polaris_Sheet || (function () {
                         'armedCombatMast':0,                  
                         'handToHandCombatMast':0,
                         
-                        'throwingWeaponsMast':0,
-                        'heavyWeaponShootingMast':0,   
+                        'throwingWeaponsMast':-3,
+                        'heavyWeaponShootingMast':-3,   
                         'handgunsMast':0,  
                         'submarineWeaponsMast':0,
                         'specialWeaponRangedMast':0,    
                         'rangedWeaponMast':0,  
                         'riflesShoulderFiredWeaponsMast':0,
                         'automaticShootMast':0,    
-                        'sharpShootingMast':0,  
+                        'sharpShootingMast':-3,  
                         
-                        'empathicAnalysisMast':0,  
+                        'empathicAnalysisMast':-3,  
                         'singingMast':0,  
                         'actingStorytellingMast':0,  
                         'leadershipMast':0, 
@@ -3819,7 +4154,7 @@ var Polaris_Sheet = Polaris_Sheet || (function () {
                         'intimidationMast':0,    
                                                 
                         'bureaucracyMast':0,       
-                        'cartographyMast':0, 
+                        'cartographyMast':-20, 
                         'businessTraffickingWeaponsMast':0,         
                         'businessTraffickingDrugsMast':0, 
                         'businessTraffickingSpecial1Mast':0,          
@@ -3827,70 +4162,91 @@ var Polaris_Sheet = Polaris_Sheet || (function () {
                         'nationsAndOrgaKnowledge1Mast':0,         
                         'nationsAndOrgaKnowledge2Mast':0,        
                         'nationsAndOrgaKnowledge3Mast':0,          
-                        'cryptographyMast':0,       
-                        'eductionGeneralKnowledgeMast':0,          
+                        'cryptographyMast':-20,       
+                        'eductionGeneralKnowledgeMast':-3,          
                         'gamblingMast':0,           
-                        'navigateMast':0,         
-                        'findingInformationMast':0,        
+                        'navigateMast':-20,         
+                        'findingInformationMast':-3,        
                         'scienceSpecializedKnowledge1Mast':0,   
                         'scienceSpecializedKnowledge2Mast':0,               
-                        'strategyMast':0,
+                        'strategyMast':-3,
                         'tacticsNavalCombatMast':0,           
                         'tacticsMast':0, 
                                        
-                        'camouflageConcealmentMast':0,                  
+                        'camouflageConcealmentMast':-3,                  
                         'diguiseDeceptionMast':0, 
                         'discretionShadowingMast':0,                   
-                        'escapeMast':0,                     
+                        'escapeMast':-20,                     
                         'furtiveSilentMovementMast':0,                 
-                        'pickpocketMast':0,  
+                        'pickpocketMast':-3,  
                                        
-                        'foreignLanguage1Mast':0, 
-                        'foreignLanguage2Mast':0, 
-                        'ancientLanguageMast':0, 
-                        'specificLanguageMast':0, 
+                        'foreignLanguage1Mast':-20, 
+                        'foreignLanguage2Mast':-20, 
+                        'ancientLanguageMast':-20, 
+                        'specificLanguageMast':-20, 
                         
                         'submarineArmorManeuverMast':0,                   
                         'armorManeuverMast':0,    
                         'submarineScooterPilotageMast':0,                 
                         'pilotLightShipMast':0,                  
                         'specificPilotMast':0,                   
-                        'telePilotageMast':0, 
+                        'telePilotageMast':-3, 
                         
-                        'huntingTrackingMast':0,                    
+                        'huntingTrackingMast':-3,
+						'cityKnowledgeMast':0,						
                         'oceansKnowledgeMast':0,  
                         'undergroundKnowledgeMast':0,                    
                         'surfaceKnowledgeMast':0,                     
                         'observationMast':0,
                         'orientationMast':0,                       
-                        'survivalMast':0,    
+                        'survivalMast':-20,    
                         
-                        'soundscanAnalysisMast':0,                        
-                        'onboardWeaponsMast':0,                          
-                        'armoryMast':0,                         
+                        'soundscanAnalysisMast':-20,                        
+                        'onboardWeaponsMast':-20,                          
+                        'armoryMast':-20,                         
                         'aquacultureLivestockFarmingMast':0,                            
-                        'surgeryMast':0,                          
-                        'trainingMast':0,                         
-                        'electronicsMast':0,                          
-                        'spyingMast':0,                         
-                        'explosivesMast':0,                       
-                        'artCraftmanshipMast':0,                          
-                        'technicalEngineering1Mast':0,                     
-                        'technicalEngineering2Mast':0,                   
-                        'technicalEngineering3Mast':0,                        
-                        'computingMast':0,                   
+                        'surgeryMast':-20,                          
+                        'trainingMast':-3,                         
+                        'electronicsMast':-20,                          
+                        'spyingMast':-20,                         
+                        'explosivesMast':-20,                       
+                        'artCraftmanshipMast':-20, 
+						'forgeryMast':-20,
+                        'technicalEngineering1Mast':-20,                     
+                        'technicalEngineering2Mast':-20,                   
+                        'technicalEngineering3Mast':-20,                        
+                        'computingMast':-3,                   
                         'survivalMechanicMast':0,                       
                         'mechanic1Mast':0,                          
                         'mechanic2Mast':0,                           
-                        'trapsMast':0,                     
-                        'computerHackingMast':0,                          
-                        'firstAidMast':0,                          
-                        'securitySystemsMast':0,               
-                                                  
-                        'specialComp1Mast':0,     
-                        'specialComp2Mast':0,     
-                        'specialComp3Mast':0,     
-                        'specialComp4Mast':0,    
+                        'trapsMast':-3,                     
+                        'computerHackingMast':-20,                          
+                        'firstAidMast':-3,                          
+                        'securitySystemsMast':-20,               
+                     
+                        'absenceMast':-20,
+						'outdoorAdaptationMast':-3,
+						'caudalAgilityMast':0,
+						'mentalShieldMast':-20,
+						'contagionMast':-20,
+						'bodyControlMast':-20,
+						'molecularControlMast':0,
+						'empathyMast':-3,
+						'hybrideMast':-20,
+						'hypnosisMast':-20,
+						'polarisEchoMast':-20,
+						'polarisEffectMast':-20,
+						'meditationMast':-20,
+						'metamorphosisMast':-3,
+						'polarisPowerMast':-20,
+						'purulenceMast':-20,
+						'radiationsMast':-3,
+						'sonarMast':0,
+
+						'specialComp1Mast':-20,     
+                        'specialComp2Mast':-20,     
+                        'specialComp3Mast':-20,     
+                        'specialComp4Mast':-20,    
                         
                         'initSheet':0
                     });
@@ -4507,6 +4863,7 @@ var Polaris_Skills = Polaris_Skills || (function () {
         updateSkill("telePilotage","int","ada",eventInfo);
         
         updateSkill("huntingTracking","per","ada",eventInfo);
+		updateSkill("cityKnowledge","int","ada",eventInfo);
         updateSkill("oceansKnowledge","int","ada",eventInfo);
         updateSkill("undergroundKnowledge","int","ada",eventInfo);
         updateSkill("surfaceKnowledge","int","ada",eventInfo);
@@ -4517,13 +4874,14 @@ var Polaris_Skills = Polaris_Skills || (function () {
         updateSkill("soundscanAnalysis","int","ada",eventInfo);
         updateSkill("onboardWeapons","int","int",eventInfo);
         updateSkill("armory","int","int",eventInfo);
+		updateSkill("artCraftmanship","int","per",eventInfo);
         updateSkill("aquacultureLivestockFarming","int","int",eventInfo);
         updateSkill("surgery","int","int",eventInfo);
         updateSkill("training","wil","pre",eventInfo);
         updateSkill("electronics","int","int",eventInfo);
         updateSkill("spying","int","int",eventInfo);
         updateSkill("explosives","int","int",eventInfo);
-        updateSkill("artCraftmanship","int","per",eventInfo);
+        updateSkill("forgery","int","per",eventInfo);
         updateSkill("technicalEngineering1","int","int",eventInfo);
         updateSkill("technicalEngineering2","int","int",eventInfo);
         updateSkill("technicalEngineering3","int","int",eventInfo);
@@ -4536,6 +4894,24 @@ var Polaris_Skills = Polaris_Skills || (function () {
         updateSkill("firstAid","int","ada",eventInfo);
         updateSkill("securitySystems","int","int",eventInfo);
         
+		updateSkill("absence","ada","wil",eventInfo);
+		updateSkill("outdoorAdaptation","con","con",eventInfo);
+		updateSkill("caudalAgility","coo","coo",eventInfo);
+		updateSkill("mentalShield","wil","wil",eventInfo);
+		updateSkill("contagion","con","wil",eventInfo);
+		updateSkill("bodyControl","con","wil",eventInfo);
+		updateSkill("molecularControl","con","wil",eventInfo);
+		updateSkill("empathy","wil","pre",eventInfo);
+		updateSkill("hybride","con","coo",eventInfo);
+		updateSkill("hypnosis","wil","pre",eventInfo);
+		updateSkill("polarisEcho","int","wil",eventInfo);
+		updateSkill("polarisEffect","wil","wil",eventInfo);
+		updateSkill("meditation","wil","wil",eventInfo);
+		updateSkill("metamorphosis","con","wil",eventInfo);
+		updateSkill("polarisPower","int","wil",eventInfo);
+		updateSkill("purulence","con","wil",eventInfo);
+		updateSkill("radiations","con","wil",eventInfo);
+		updateSkill("sonar","per","per",eventInfo);
         
     },
     updateSpecificPilot = function (eventInfo) {
@@ -4596,35 +4972,42 @@ var Polaris_Skills = Polaris_Skills || (function () {
                 setObj[skillName]=skillValue;
 
                 setAttrs(setObj);
-                                
+             
             }
         });
     },
        // Register All the events
     registerEventHandlers = function () {
         
-        on("change:pilotingFirstAbility change:pilotingSecondAbility", TAS.callback( function updateSpecificPilotAbilities (eventInfo) {
+		on("change:acrobaticsBalanceMast change:athleticMast change:enduranceMast change:climbingMast change:zerogManeuveringMast change:submarineManeuveringMast change:fofBreathingMast change:heavyWeaponMeleeMast change:specialWeaponMeleeMast change:wrestlingMAMast change:defenseTechniquesMast change:offenseTechniquesMast change:armedCombatMast change:handToHandCombatMast change:throwingWeaponsMast change:heavyWeaponShootingMast change:handgunsMast change:submarineWeaponsMast change:specialWeaponRangedMast change:rangedWeaponMast change:riflesShoulderFiredWeaponsMast change:automaticShootMast change:sharpShootingMast change:empathicAnalysisMast change:singingMast change:actingStorytellingMast change:leadershipMast change:dancingMast change:eloquencePersuasionMast change:socializingSeductionMast change:musicInstrumentMast change:intimidationMast change:bureaucracyMast change:cartographyMast change:businessTraffickingWeaponsMast change:businessTraffickingDrugsMast change:businessTraffickingSpecial1Mast change:businessTraffickingSpecial2Mast change:nationsAndOrgaKnowledge1Mast change:nationsAndOrgaKnowledge2Mast change:nationsAndOrgaKnowledge3Mast change:cryptographyMast change:eductionGeneralKnowledgeMast change:gamblingMast change:navigateMast change:findingInformationMast change:scienceSpecializedKnowledge1Mast change:scienceSpecializedKnowledge2Mast change:strategyMast change:tacticsNavalCombatMast change:tacticsMast change:camouflageConcealmentMast change:diguiseDeceptionMast change:discretionShadowingMast change:escapeMast change:furtiveSilentMovementMast change:pickpocketMast change:foreignLanguage1Mast change:foreignLanguage2Mast change:ancientLanguageMast change:specificLanguageMast change:submarineArmorManeuverMast change:armorManeuverMast change:submarineScooterPilotageMast change:pilotLightShipMast change:telePilotageMast change:huntingTrackingMast change:cityKnowledgeMast change:oceansKnowledgeMast change:undergroundKnowledgeMast change:surfaceKnowledgeMast change:observationMast change:orientationMast change:survivalMast change:soundscanAnalysisMast change:onboardWeaponsMast change:armoryMast change:aquacultureLivestockFarmingMast change:surgeryMast change:trainingMast change:electronicsMast change:spyingMast change:explosivesMast change:artCraftmanshipMast change:forgeryMast change:technicalEngineering1Mast change:technicalEngineering2Mast change:technicalEngineering3Mast change:computingMast change:survivalMechanicMast change:mechanic1Mast change:mechanic2Mast change:trapsMast change:computerHackingMast change:firstAidMast change:securitySystemsMast change:absenceMast change:outdoorAdaptationMast change:caudalAgilityMast change:mentalShieldMast change:contagionMast change:bodyControlMast change:molecularControlMast change:empathyMast change:hybrideMast change:hypnosisMast change:polarisEchoMast change:polarisEffectMast change:meditationMast change:metamorphosisMast change:polarisPowerMast change:purulenceMast change:radiationsMast change:sonarMast",
+			TAS.callback( function updateSkillsAbilities(eventInfo) {
+            TAS.debug("caught " + eventInfo.sourceAttribute + " event: " + eventInfo.sourceType);
+            
+            updateSkills(eventInfo);            
+        }));
+		
+        on("change:pilotingFirstAbility change:pilotingSecondAbility change:specificPilotMast", TAS.callback( function updateSpecificPilotAbilities (eventInfo) {
             TAS.debug("caught " + eventInfo.sourceAttribute + " event: " + eventInfo.sourceType);
             
             updateSpecificPilot(eventInfo);            
         }));
         
-        on("change:specialComp1FirstAbility change:specialComp1SecondAbility", TAS.callback( function updateSpecialComp1Abilities (eventInfo) {
+        on("change:specialComp1FirstAbility change:specialComp1SecondAbility change:specialComp1Mast", TAS.callback( function updateSpecialComp1Abilities (eventInfo) {
             TAS.debug("caught " + eventInfo.sourceAttribute + " event: " + eventInfo.sourceType);
             
             updateSpecialComp("1",eventInfo);            
         }));
-        on("change:specialComp2FirstAbility change:specialComp2SecondAbility", TAS.callback( function updateSpecialComp2Abilities (eventInfo) {
+        on("change:specialComp2FirstAbility change:specialComp2SecondAbility change:specialComp2Mast", TAS.callback( function updateSpecialComp2Abilities (eventInfo) {
             TAS.debug("caught " + eventInfo.sourceAttribute + " event: " + eventInfo.sourceType);
             
             updateSpecialComp("2",eventInfo);            
         }));
-        on("change:specialComp3FirstAbility change:specialComp3SecondAbility", TAS.callback( function updateSpecialComp3Abilities (eventInfo) {
+        on("change:specialComp3FirstAbility change:specialComp3SecondAbility change:specialComp3Mast", TAS.callback( function updateSpecialComp3Abilities (eventInfo) {
             TAS.debug("caught " + eventInfo.sourceAttribute + " event: " + eventInfo.sourceType);
             
             updateSpecialComp("3",eventInfo);            
         }));
-        on("change:specialComp4FirstAbility change:specialComp4SecondAbility", TAS.callback( function updateSpecialComp4Abilities (eventInfo) {
+        on("change:specialComp4FirstAbility change:specialComp4SecondAbility change:specialComp4Mast", TAS.callback( function updateSpecialComp4Abilities (eventInfo) {
             TAS.debug("caught " + eventInfo.sourceAttribute + " event: " + eventInfo.sourceType);
             
             updateSpecialComp("4",eventInfo);            
@@ -4645,6 +5028,17 @@ var Polaris_Skills = Polaris_Skills || (function () {
 /**  Vehicle  **/
 
 /**  Old Script  **/
-
+function runClock() {
+  today   = new Date();
+  hours   = today.getHours();
+  minutes = today.getMinutes();
+  seconds = today.getSeconds();
+  timeValue = hours;
+  timeValue += ((minutes < 10) ? ":0" : ":") + minutes;
+  timeValue += ((seconds < 10) ? ":0" : ":") + seconds;
+  document.getElementById("time").innerHTML = timeValue;
+  timerID = setTimeout(runClock,1000);
+  timerRunning = true;
+}
 
 </script>
